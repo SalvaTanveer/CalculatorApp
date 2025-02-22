@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculation Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 320px;
+        }
+
+        h1 {
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 90%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .button-container {
+            margin-top: 15px;
+        }
+
+        button {
+            padding: 8px 12px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            background-color: #007bff;
+            color: white;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Calculation Result</h1>
+
+        <p><strong>Result:</strong> <span th:text="${result}"></span></p>
+        <p><strong>Operation:</strong> <span th:text="${operation}"></span></p>
+
+        <form action="/calculate" method="GET">
+            <label for="num1">Enter Number 1:</label>
+            <input type="number" id="num1" name="num1" th:value="${num1}" required>
+
+            <label for="num2">Enter Number 2:</label>
+            <input type="number" id="num2" name="num2" th:value="${num2}" required>
+
+            <div class="button-container">
+                <button type="submit" name="operation" value="add">Add</button>
+                <button type="submit" name="operation" value="sub">Subtract</button>
+                <button type="submit" name="operation" value="mul">Multiply</button>
+                <button type="submit" name="operation" value="div">Divide</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
